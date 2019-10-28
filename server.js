@@ -3,7 +3,6 @@ const express = require("express");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
 const db = require("./models");
 
 app.use(express.urlencoded({ extended: true }));
@@ -18,8 +17,8 @@ app.set("view engine", "handlebars");
 
 const htmlRoutes = require("./routes/htmlRoutes.js");
 const APIRoutes = require( "./routes/APIRoutes.js");
-app.use(HtmlRoutes);
-app.use(ApiRoutes);
+app.use(htmlRoutes);
+app.use(APIRoutes);
 
 
 db.sequelize.sync({ force: false}).then(function() {
